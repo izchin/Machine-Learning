@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 
 
-# 更新参数，训练模型
 def train(x_train, y_train, epoch):
     num = x_train.shape[0]
     dim = x_train.shape[1]
@@ -33,9 +32,6 @@ def train(x_train, y_train, epoch):
         bias -= learning_rate / bg2_sum ** 0.5 * b_g
         weights -= learning_rate / wg2_sum ** 0.5 * w_g
 
-        # 每训练100轮，输出一次在训练集上的正确率
-        # 在计算loss时，由于涉及到log()运算，因此可能出现无穷大，计算并打印出来的loss为nan
-        # 有兴趣的同学可以把下面涉及到loss运算的注释去掉，观察一波打印出的loss
         if i % 3 == 0:
             # loss = 0
             acc = 0
